@@ -2,17 +2,17 @@ import { Hero } from "@/UI/Hero/Hero";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 
-export default function Home() {
+export default function Pricing() {
   return (
     <>
       <Hero
-        title="NextUI"
+        title="Precios"
         cta={
           <>
             <h2 className="font-bold text-4xl mb-4 mt-6">
-              Esta es una aplicación de ticketing
+              Consulta nuestros precios
             </h2>
-            <p>Apta para todas las startups</p>
+            <p>Elige el plan que mejor se adapte a tus necesidades</p>
           </>
         }
         actions={[
@@ -25,16 +25,6 @@ export default function Home() {
             size="lg"
           >
             Contratar
-          </Button>,
-          <Button
-            as={Link}
-            href="/pricing"
-            color="primary"
-            variant="ghost"
-            key="second"
-            size="lg"
-          >
-            Saber más
           </Button>,
         ]}
       />
