@@ -1,22 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-
-export function GET(req: NextRequest) {
-  console.log("This is the sample variable: ", process.env.EMAIL_USER);
-  return NextResponse.json(
-    { message: "Hello from the API!", method: "This is a GET request" },
-    { status: 200 }
-  );
-}
+import { sendMail } from "./transporter";
 
 export async function POST(req: NextRequest) {
   try {
-    const requestBody = await req.json();
-    console.log("Request: ", requestBody);
+    const body = await req.json();
+
+    const { from, text } = body;
+
+    await sendMail({
+      from,
+      text,
+    });
+
     return NextResponse.json(
       { message: "Hello from the API!", method: "This is a POST request" },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (err) {
+    console.error(err);
     return NextResponse.json(
       { message: "Hello from the API!", method: "This is a POST request" },
       { status: 500 }

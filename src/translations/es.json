@@ -1,0 +1,11 @@
+{
+  "home": {
+    "hero": {
+      "title": "NextUI",
+      "subtitle": "Esta es una aplicación de ticketing",
+      "text": "Apta para todas las startups",
+      "button_buy": "Comprar",
+      "button_learn_more": "Saber más"
+    }
+  }
+}

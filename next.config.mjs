@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import bundleAnalizer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalizer({
+  enabled: false,
+});
+
+const nextConfig = withBundleAnalyzer({
+  // Configuraciones previas
+});
 
 export default nextConfig;

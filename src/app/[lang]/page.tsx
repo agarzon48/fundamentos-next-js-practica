@@ -1,18 +1,27 @@
 import { Hero } from "@/UI/Hero/Hero";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import { AvailableLocales } from "@/translations/translations.types";
+import { getTranslations } from "@/translations/translations";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { lang: AvailableLocales };
+}) {
+  const lang = params.lang;
+  const t = await getTranslations(lang);
+
   return (
     <>
       <Hero
-        title="NextUI"
+        title={t.home.hero.title}
         cta={
           <>
             <h2 className="font-bold text-4xl mb-4 mt-6">
-              Esta es una aplicación de ticketing
+              {t.home.hero.subtitle}
             </h2>
-            <p>Apta para todas las startups</p>
+            <p>{t.home.hero.text}</p>
           </>
         }
         actions={[
@@ -24,7 +33,7 @@ export default function Home() {
             key="first"
             size="lg"
           >
-            Contratar
+            {t.home.hero.button_buy}
           </Button>,
           <Button
             as={Link}
@@ -34,7 +43,7 @@ export default function Home() {
             key="second"
             size="lg"
           >
-            Saber más
+            {t.home.hero.button_learn_more}
           </Button>,
         ]}
       />

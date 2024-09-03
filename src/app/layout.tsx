@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { NextUIProvider } from "@nextui-org/react";
 import { Footer } from "@/UI/Footer/Footer";
 import { Navbar } from "@/UI/Navbar/Navbar";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen text-balance">
-          <NextUIProvider>{children}</NextUIProvider>
-        </main>
-        <Footer />
+        <SessionProvider>
+          <Navbar />
+          <main className="min-h-screen text-balance">
+            <NextUIProvider>{children}</NextUIProvider>
+          </main>
+          {/* <WebVitals /> */}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

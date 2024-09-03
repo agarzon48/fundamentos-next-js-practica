@@ -4,8 +4,8 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
 } from "@nextui-org/react";
+import { LoginButton } from "./LoginButton";
 
 export function Navbar() {
   return (
@@ -25,9 +25,7 @@ export function Navbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Login
-          </Button>
+          <LoginButton />
         </NavbarItem>
       </NavbarContent>
     </NUINavbar>
